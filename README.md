@@ -16,6 +16,7 @@ Output should be printed to terminal like below:
 
 Show all of the SEO defects
 Finish all SEO defects scan
+
 All <img> in this HTML file contain attribute "alt".
 This HTML file contains 30 <a> tag without rel attribute.
 This HTML file does not have a <meta name="description" .../> tag
