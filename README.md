@@ -6,14 +6,14 @@ These instructions will get you a copy of the project up and running on your loc
 
 # Installation
 Install Scanning HTML file SEO defects globally using npm:
-npm install --save scanning-html-file
+'npm install --save scanning-html-file'
 
 # Example
 To get familiar with usage of the module:
-node index.js
+'node index.js'
 
 Output should be printed to terminal like below:
-
+```js
 Show all of the SEO defects
 Finish all SEO defects scan
 
@@ -23,7 +23,7 @@ This HTML file does not have a <meta name="description" .../> tag
 This HTML file does not have a <meta name="keywords" .../> tag
 This HTML has less than 15, <strong> tag. Count = 0
 This HTML has less than 1, <h1> tag. Count = 0
-
+```
 # Usage
 The input can be either:
 I. A HTML file (User is able to config the input path)
@@ -36,49 +36,54 @@ III. Console
 
 # Basic usage
 1. Input file:
+```js
 /**
  * Setup The input is A HTML file from the path
  * @param {object} input - used to feed in HTML file source
  */
 scanningHTMLFile.setInput(new Input().createInputFile(__dirname+"/test/Node.js.html"));
-
-/**
- * Setup the output is console
- * @param {object} output - console
- */
-scanningHTMLFile.setOutput(new Output().createOutputConsole());
+```
 
 2. Input readable stream:
+```js
 /**
  * Setup the input is A Node Readable Stream
  * @param {object} input - used to feed in HTML file source
  */
 var readable_stream = fs.createReadStream(__dirname+"/test/Node.js.html");
 scanningHTMLFile.setInput(new Input().createInputStream(readable_stream));
+```
 
 3. Output to console:
+```js
 /**
  * Setup the output is console
  * @param {object} output - console
  */
 scanningHTMLFile.setOutput(new Output().createOutputConsole());
+```
 
 4. Output to a file:
+```js
 /**
  * Setup the output is a file
  * @param {object} output - used to feed in HTML file source
  */
 scanningHTMLFile.setOutput(new Output().createOutputFile(__dirname+"/output.txt"));
+```
 
 5. Output to readable stream:
+```js
 /**
  * Setup the output is A Node Readable Stream
  * @param {object} output - used to feed in HTML file source
  */
 var writeable_stream = fs.createWriteStream(__dirname + '/outstream.txt')
 scanningHTMLFile.setOutput(new Output().createOutputStream(writeable_stream));
+```
 
 6. Pre-defined SEO rules:
+```js
 var rules = {
     img: 'alt', // if there are any <img />tags without alt attribute
     a: 'rel', // if there are any <a />tags without rel attribute
@@ -89,6 +94,7 @@ var rules = {
     strong: 15, // there are more than 15 <strong>tag in HTML
     h1: 1, // if a HTML have more than one <H1>tag
 };
+```
 
 #License
 This project is licensed under the MIT License - see the LICENSE file for details.
